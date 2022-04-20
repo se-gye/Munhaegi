@@ -26,10 +26,8 @@ void pick(int *money, int n, int *bucket, int m, int toPick, int target) {
 		for (i = 0; i < m; i++) {
 			sum += money[bucket[i]];
 			if (sum == target) {
-				for (j = i; j >= 0; j--) {
-					if (!money[bucket[j]]) break;
-					else printf("%d ", money[bucket[j]]);
-				}
+				for (j = i; j >= 0; j--)
+					printf("%d ", money[bucket[j]]);
 				printf("\n"); 
 				count++;
 				break;
@@ -67,7 +65,7 @@ int main(void) {
 	scanf("%d", &giveMoney);
 	bucket = (int *)malloc(sizeof(int) * (giveMoney / 1000));
 
-	pick(money, 4, bucket, giveMoney / 1000, giveMoney / 1000, giveMoney);
+	pick(money, 3, bucket, giveMoney / 1000, giveMoney / 1000, giveMoney);
 	printf("count=%d\n", count);
 
 	free(bucket);
